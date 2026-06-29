@@ -1,0 +1,214 @@
+/* Claude-inspired Premium Theme-Agnostic Stylesheet */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+
+/* Apply Inter font globally for body and regular controls */
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* App View Container - dynamic background and text color based on Streamlit Theme settings */
+[data-testid="stAppViewContainer"] {
+    background-color: var(--background-color) !important; 
+    color: var(--text-color) !important;
+}
+
+/* Sidebar with cleaner slate-black/beige tone */
+[data-testid="stSidebar"] {
+    background-color: var(--secondary-background-color) !important;
+    border-right: 1px solid rgba(128, 128, 128, 0.15) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+/* Claude editorial style main title (Merriweather Serif) */
+.claude-title {
+    font-family: 'Merriweather', serif !important;
+    font-weight: 700;
+    font-size: 2.3rem !important;
+    color: var(--text-color) !important;
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.5px;
+}
+
+/* Clean, elegant sidebar title styling */
+.claude-sidebar-title {
+    font-family: 'Merriweather', serif !important;
+    font-weight: 700;
+    font-size: 1.3rem !important;
+    color: var(--text-color) !important;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.2px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+    padding-bottom: 0.6rem;
+}
+
+/* Sub-header description styling */
+.app-desc {
+    text-align: center;
+    color: var(--text-color) !important;
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-family: 'Merriweather', serif !important;
+}
+
+/* Elegant minimalist Card Wrappers */
+.glass-card {
+    background: rgba(128, 128, 128, 0.05) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(128, 128, 128, 0.12) !important;
+    padding: 1.2rem !important;
+    margin-bottom: 1rem !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Minimalist Chat Message Bubbles matching Claude's layout */
+[data-testid="stChatMessage"] {
+    background: rgba(128, 128, 128, 0.03) !important;
+    border: 1px solid rgba(128, 128, 128, 0.08) !important;
+    border-radius: 12px !important;
+    padding: 1rem 1.2rem !important;
+    margin-bottom: 0.8rem !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+    transition: border-color 0.2s ease;
+    color: var(--text-color) !important;
+}
+
+[data-testid="stChatMessage"]:hover {
+    border-color: rgba(217, 106, 71, 0.25) !important;
+}
+
+/* Clay accent borders for user and assistant messages */
+[data-testid="stChatMessage"][data-test-role="user"] {
+    border-left: 3.5px solid #d96a47 !important;
+}
+
+[data-testid="stChatMessage"][data-test-role="assistant"] {
+    border-left: 3.5px solid rgba(128, 128, 128, 0.4) !important;
+}
+
+/* Circular RAG avatar header */
+.hero-img-container {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem auto 1rem auto;
+    max-width: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 6px 16px 0 rgba(217, 106, 71, 0.15);
+    border: 2px solid rgba(217, 106, 71, 0.25);
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Pulsing Custom Wait Loader matching warm theme */
+.pulse-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(128, 128, 128, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(217, 106, 71, 0.25);
+    text-align: center;
+    box-shadow: 0 0 15px rgba(217, 106, 71, 0.05);
+    margin: 1rem 0;
+    animation: pulse-glow 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 10px rgba(217, 106, 71, 0.05);
+        border-color: rgba(217, 106, 71, 0.15);
+    }
+    50% {
+        box-shadow: 0 0 18px rgba(217, 106, 71, 0.18);
+        border-color: rgba(217, 106, 71, 0.35);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(217, 106, 71, 0.05);
+        border-color: rgba(217, 106, 71, 0.15);
+    }
+}
+
+.spinner-ring {
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgba(217, 106, 71, 0.15);
+    border-top: 3px solid #d96a47;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 0.75rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color) !important;
+}
+
+.loader-subtext {
+    font-size: 0.75rem;
+    color: var(--text-color) !important;
+    opacity: 0.6;
+    margin-top: 0.2rem;
+}
+
+/* Styled Error messages */
+.error-card {
+    background: rgba(255, 59, 92, 0.05) !important;
+    border: 1px solid rgba(255, 59, 92, 0.2) !important;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    color: #ff9ebe;
+    font-size: 0.85rem;
+}
+
+/* Claude clay-colored buttons */
+div.stButton > button {
+    background-color: rgba(217, 106, 71, 0.08) !important;
+    color: var(--text-color) !important;
+    border: 1px solid rgba(217, 106, 71, 0.3) !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+    font-weight: 500 !important;
+}
+
+div.stButton > button:hover {
+    background-color: #d96a47 !important;
+    border-color: #d96a47 !important;
+    box-shadow: 0 2px 8px rgba(217, 106, 71, 0.25) !important;
+    color: #ffffff !important;
+}
+
+/* Sidebar widget styling adjustments */
+[data-testid="stSidebar"] div.stButton > button {
+    background-color: rgba(217, 106, 71, 0.05) !important;
+}
+
+/* Chat Input Styling */
+[data-testid="stChatInput"] {
+    background-color: rgba(128, 128, 128, 0.04) !important;
+    border: 1px solid rgba(128, 128, 128, 0.15) !important;
+    border-radius: 12px !important;
+}
+
+[data-testid="stChatInput"] textarea {
+    color: var(--text-color) !important;
+}
