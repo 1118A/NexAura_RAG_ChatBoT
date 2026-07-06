@@ -1,0 +1,29 @@
+[server]
+# Maximum file upload size in MB (blocks oversized PDF attacks)
+maxUploadSize = 50
+
+# Disable Streamlit's file watcher in production for performance
+runOnSave = false
+
+# Headless mode for cloud deployments
+headless = true
+
+# Prevent CORS issues in production
+enableCORS = false
+
+# Disable XSRF protection only if behind a trusted reverse proxy.
+# Keep true (default) for direct deployments.
+enableXsrfProtection = true
+
+[browser]
+# Disables Streamlit's usage statistics collection
+gatherUsageStats = false
+
+[theme]
+# Base theme — can be overridden by user
+base = "dark"
+primaryColor = "#d96a47"
+backgroundColor = "#0e1117"
+secondaryBackgroundColor = "#1a1d27"
+textColor = "#fafafa"
+font = "sans serif"

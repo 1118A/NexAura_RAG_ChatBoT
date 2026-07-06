@@ -1,7 +1,25 @@
-.venv/
-.env
+# ── Python ────────────────────────────────────────────────────────────────────
 __pycache__/
-.ipynb_checkpoints/
 *.pyc
-*.log
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Secrets & credentials (NEVER commit these) ────────────────────────────────
+.env
+# .env.example is SAFE to commit (no real keys, only placeholders)
+
+# ── User-uploaded data (may contain sensitive documents) ─────────────────────
 data/
+
+# ── Local vector database (can be large; regenerate from source docs) ─────────
+chroma_db/
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
